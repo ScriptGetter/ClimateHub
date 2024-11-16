@@ -1,0 +1,158 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "Climate Hub             Subscribe ♥️ EnchantedV4000", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local Tab = Window:MakeTab({
+	Name = "Player Setting",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "This is Player Settinf Which is they can change their speed/jump"
+})
+
+Tab:AddButton({
+	Name = "Fps Booster",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptGetter/Booster/refs/heads/main/Check%20this%20out"))()
+      		print("button pressed")
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Rejoin (Small Server)",
+	Callback = function()
+	local Http = game:GetService("HttpService")
+local TPS = game:GetService("TeleportService")
+local Api = "https://games.roblox.com/v1/games/"
+
+local _place = game.PlaceId
+local _servers = Api.._place.."/servers/Public?sortOrder=Asc&limit=100"
+function ListServers(cursor)
+  local Raw = game:HttpGet(_servers .. ((cursor and "&cursor="..cursor) or ""))
+  return Http:JSONDecode(Raw)
+end
+
+local Server, Next; repeat
+  local Servers = ListServers(Next)
+  Server = Servers.data[1]
+  Next = Servers.nextPageCursor
+until Server
+
+TPS:TeleportToPlaceInstance(_place,Server.id,game.Players.LocalPlayer)
+      		print("button pressed")
+  	end    
+})
+
+Tab:AddSlider({
+	Name = "Speed Up",
+	Min = 16,
+	Max = 300,
+	Default = 16,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "WalkSpeed",
+	Callback = function(Value)
+	game.Player.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+		print(Value)
+	end    
+})
+
+Tab:AddSlider({
+	Name = "Jump Power",
+	Min = 50,
+	Max = 1500,
+	Default = 50,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "JumpHeight",
+	Callback = function(Value)
+	game.Player.LocalPlayer.Character.Humanoid.JumpHeight = Value
+		print(Value)
+	end    
+})
+
+local Tab = Window:MakeTab({
+	Name = "Gui Scripts",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Touch Fling Player",
+	Callback = function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptGetter/Fling-/refs/heads/main/FlingPlayer"))()
+      		print("button pressed")
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Keyboard",
+	Callback = function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Xxtan31/Ata/main/deltakeyboardcrack.txt", true))()
+      		print("button pressed")
+  	end    
+})
+
+Tab:AddButton({
+	Name = "God Mode",
+	Callback = function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/dG2Zjtqk"))()
+      		print("button pressed")
+  	end    
+})
+
+local Tab = Window:MakeTab({
+	Name = "Admin Scripts",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Infinite yield",
+	Callback = function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source', true))()
+      		print("button pressed")
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Nameless Admin",
+	Callback = function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source'))
+      		print("button pressed")
+  	end    
+})
+
+local Tab = Window:MakeTab({
+	Name = "My Script (Required To Join Discord)",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = true
+})
+
+local Section = Tab:AddSection({
+	Name = "Click The Button To Join My Discord!"
+})
+
+Tab:AddButton({
+	Name = "Discord!",
+	Callback = function()
+	local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+local function copyToClipboard(text)
+    if setclipboard then
+        setclipboard(text)
+        print("Link copied to clipboard: " .. text)
+    else
+        warn("setclipboard is not available in this environment.")
+    end
+end
+
+-- Example usage
+local link = "https://discord.gg/8ZXCj3vZ"
+copyToClipboard(link)
+      		print("button pressed")
+  	end    
+})
